@@ -1,0 +1,7 @@
+spring:
+  main:
+    banner-mode: off
+
+mybatis-plus:
+  global-config:
+    banner: off

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bluo.service.user.mapper.PersonalInfoMapper">
+    <select id="selectByUserId" resultType="org.bluo.service.user.pojo.PersonalInfo">
+        select id, user_id, school_code, id_card, gender, major_code, create_time, update_time, age
+        from personal_info
+        where user_id = #{userId}
+    </select>
+</mapper>

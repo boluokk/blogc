@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bluo.service.blog.mapper.PreviewInfoMapper">
+    <select id="findByBlogId" resultType="org.bluo.service.blog.pojo.PreviewInfo">
+        select id, blog_id, preview, `like`, dislike, author
+        from preview_info
+        where blog_id = #{blogId}
+    </select>
+    <select id="findByBlogIds" resultType="org.bluo.service.blog.pojo.PreviewInfo">
+        select
+            id, preview, blog_id, `like`, dislike, author
+        from
+            preview_info
+        where
+            blog_id in
+            <foreach collection="blogIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+    </select>
+</mapper>

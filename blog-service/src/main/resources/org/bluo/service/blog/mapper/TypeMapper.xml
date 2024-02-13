@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bluo.service.blog.mapper.TypeMapper">
+
+    <select id="selectByIds" resultType="org.bluo.service.blog.pojo.Type">
+        select
+            id, name, description
+        from
+            type
+        where
+            id in
+            <foreach collection="ids" item="item" separator="," close=")" open="(">
+                #{item}
+            </foreach>
+    </select>
+</mapper>

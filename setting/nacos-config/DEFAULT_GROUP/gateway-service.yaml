@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:10101/bluo_resource?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+auth:
+  service:
+    uri: /user/**
+
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 5s
+      routes:
+        # 用户服务
+        - id: user_service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**,/login,/register

@@ -11,7 +11,6 @@
 
     <modules>
         <module>common</module>
-        <module>config</module>
         <module>common/redis</module>
         <module>common/rabbitmq</module>
         <module>gateway-service</module>
@@ -19,7 +18,6 @@
         <module>blog-service</module>
         <module>common/minio</module>
         <module>user-service</module>
-        <module>config/mysql</module>
         <module>comment-service</module>
         <module>blink-service</module>
     </modules>
@@ -40,10 +38,18 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <annotations.version>24.0.1</annotations.version>
         <mysql.version>8.0.33</mysql.version>
+        <elasticsearch.version>3.2.1</elasticsearch.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
             <!-- spring boot 依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -52,6 +58,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!-- spring cloud 依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -60,6 +67,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!-- spring cloud alibaba 依赖 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>

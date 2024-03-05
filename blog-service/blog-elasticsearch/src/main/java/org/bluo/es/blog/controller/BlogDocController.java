@@ -4,7 +4,6 @@ import global.pojo.BlogDoc;
 import jakarta.annotation.Resource;
 import org.bluo.es.blog.service.impl.BlogDocServiceImpl;
 import org.bluo.service.esblog.ESBlogClient;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
